@@ -37,10 +37,16 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");            
+            out.println("<title>Contabil Home</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1> Home </h1><hr>");
+            out.println("<h2> Integrantes do Grupo: </h2>");
+            out.println("<h3> Felipe Iglesias <br> Helaman Spadari <br> Tiago Farias  </h3>");
+            out.println("<br><hr>");
+            out.println("<h2><u>Calcule</u></h2>");
+            out.println("<h3><a href='jurossimples.html'>Juros Simples</a></h3>");
+            out.println("<h3><a href='juroscomposto.html'>Juros Composto</a></h3>");
             out.println("</body>");
             out.println("</html>");
         }
