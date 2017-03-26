@@ -1,0 +1,20 @@
+#body{
+	text-align: center;
+	font-family: verdana;
+	background: green;
+}
+#top{
+
+}
+#titulo{
+		
+}
+#meio{
+	
+}
+#integran{
+	padding-right: 40px;
+}
+#rodape{
+	padding-top: 40px;
+}
