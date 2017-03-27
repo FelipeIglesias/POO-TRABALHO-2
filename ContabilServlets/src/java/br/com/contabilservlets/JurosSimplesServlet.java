@@ -7,6 +7,7 @@ package br.com.contabilservlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +51,9 @@ public class JurosSimplesServlet extends HttpServlet {
         
         juros = this.calculaJuroSimples(capital, taxa, periodo);
         
+        DecimalFormat df = new DecimalFormat("###,###,###.00");
+        df.format(juros);
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -66,8 +70,10 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<input type='submit' name='btnCalcularJurosSimples' value='Calcular' />");
             out.println("</form>");
             // TODO: ajustar o template, adicionar uma estilização / tabela / whateverelse
-            out.println("<h3>Valor total: R$ "+ juros +"</h3>");
-            out.println("<h3>Juros: R$ "+ (juros-capital) +"</h3>");
+            if(juros > 0){
+                out.println("<h3>Valor total: R$ "+ df.format(juros) +"</h3>");
+                out.println("<h3>Juros: R$ "+ (df.format(juros-capital)) +"</h3>");
+            }
             out.println("</body>");
             out.println("</html>");
         }
