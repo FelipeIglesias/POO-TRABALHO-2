@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author PA01
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home.html"})
+@WebServlet(name = "HomeServlet", urlPatterns = {"/index.html"})
 public class HomeServlet extends HttpServlet {
 
     /**
@@ -37,33 +37,33 @@ public class HomeServlet extends HttpServlet {
             out.println	("<!DOCTYPE html>");
             out.println	("<html>");
             out.println	("<head>");
-            out.println		("<meta charset="utf-8">");
+            out.println		("<meta charset='utf-8'>");
             out.println		("<title>Juros Economico</title>");
-            out.println		("<link rel="stylesheet" type="text/css" href="ecoCss.css">");
+            out.println		("<link rel='stylesheet' type='text/css' href='ecoCss.css'>");
             out.println	("</head>");
             out.println	("<body>");
-            out.println		("<div class="container" id="body">");
+            out.println		("<div class='container' id='body'>");
             out.println			("<header>");
-            out.println				("<div id="top">");
+            out.println				("<div id='top'>");
             out.println					("<h1>JurosEco</h1><hr>");
             out.println				("</div>");
             out.println			("</header>");
             out.println			("<body>");
-            out.println				("<div class="container">");
-            out.println				("<div id="titulo">");
+            out.println				("<div class='container'>");
+            out.println				("<div id='titulo'>");
             out.println					("<h2>Seja bem-vindo ao JurosEco</h2><hr>");			
             out.println				("</div>");
-            out.println				("<div id="meio">");
+            out.println				("<div id='meio'>");
             out.println					("<h2>Objetivo do Site</h2>");
             out.println					("<p>Site criado para auxiliar as pessoas a calcularem seus juros</p>");
             out.println					("<h3><u>Calcule o tipo de Juros desejado</u></h3>");
-            out.println					("<h4><a href="jurossimples.html">Juros Simples</a></h4>");
-            out.println					("<h4><a href="jurossimples.html">Juros Composto</a></h4>");
+            out.println					("<h4><a href='jurossimples.html'>Juros Simples</a></h4>");
+            out.println					("<h4><a href='jurossimples.html'>Juros Composto</a></h4>");
             out.println				("</div>");
             out.println				("<hr>");
             out.println				("<div>");
             out.println					("<h3>Integrantes do Grupo</h3>");
-            out.println					("<div id="integran">");
+            out.println					("<div id='integran'>");
             out.println						("<ul>");
             out.println							("<p>Felipe Iglesias</p>");
             out.println							("<p>Helaman Spadari</p>");
@@ -75,7 +75,7 @@ public class HomeServlet extends HttpServlet {
             out.println			("</div>");	
             out.println		("</body>");
             out.println		("<footer>");
-            out.println			("<div id="rodape">");
+            out.println			("<div id='rodape'>");
             out.println				("<hr><p>Projeto-02 - POO - Ricardo Pupo</p>");
             out.println			("</div>");
             out.println		("</footer>");

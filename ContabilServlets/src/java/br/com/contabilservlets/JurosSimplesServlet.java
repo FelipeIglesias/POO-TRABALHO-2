@@ -19,7 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "JurosSimplesServlet", urlPatterns = {"/jurossimples.html"})
 public class JurosSimplesServlet extends HttpServlet {
-
+   
+    private static final int anoComercial  = 360;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,18 +34,57 @@ public class JurosSimplesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        float capital = 0;
+        float taxa = 0;
+        int periodo = 0;
+        float juros = 0;
+        
+        try {
+            capital = Float.parseFloat(request.getParameter("capital"));
+            taxa = Float.parseFloat(request.getParameter("taxa"));
+            periodo = Integer.parseInt(request.getParameter("periodo"));
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        
+        juros = this.calculaJuroSimples(capital, taxa, periodo);
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet JurosSimplesServlet</title>");            
+            out.println("<title>Servlet Calculo de Juros Simples</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet JurosSimplesServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Calculo de juro simples</h1>");
+            out.println("<form name='formCalculoJuroSimples' method='post'>");
+            out.println("<label for='capital'>Capital R$:</label><input type='text' name='capital' />");
+            out.println("<label for='taxa'>Juros:</label><input type='text' name='taxa' />");
+            out.println("<label for='periodo'>Periodo (em dias):</label><input type='text' name='periodo' placeholder='Ex.: 100 = 100 dias' />");
+            out.println("<input type='submit' name='btnCalcularJurosSimples' value='Calcular' />");
+            out.println("</form>");
+            // TODO: ajustar o template, adicionar uma estilização / tabela / whateverelse
+            out.println("<h3>Valor total: R$ "+ juros +"</h3>");
+            out.println("<h3>Juros: R$ "+ (juros-capital) +"</h3>");
             out.println("</body>");
             out.println("</html>");
         }
+    }
+    
+    /**
+     * Calculo de juro simples.
+     * @param capital float
+     * @param taxa float
+     * @param periodo int
+     * @return result (juro simples)
+     */
+    public float calculaJuroSimples(float capital, float taxa, int periodo){
+        float result = 0;
+        result = capital*(1+(((float)taxa/100f)*((float)periodo/anoComercial)));
+        
+        return result;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
