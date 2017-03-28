@@ -58,7 +58,7 @@ public class HomeServlet extends HttpServlet {
             out.println					("<p>Site criado para auxiliar as pessoas a calcularem seus juros</p>");
             out.println					("<h3><u>Calcule o tipo de Juros desejado</u></h3>");
             out.println					("<h4><a href='jurossimples.html'>Juros Simples</a></h4>");
-            out.println					("<h4><a href='jurossimples.html'>Juros Composto</a></h4>");
+            out.println					("<h4><a href='juroscomposto.html'>Juros Composto</a></h4>");
             out.println				("</div>");
             out.println				("<hr>");
             out.println				("<div>");
