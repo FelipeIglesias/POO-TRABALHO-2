@@ -63,7 +63,7 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>");
             out.println("<link rel='stylesheet' type='text/css' href='js/bootstrap.min.js'>");
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body style='background-color: #c7ddef' >");
             out.println("<div class='container-fluid'>");
             out.println("<h1>Calculo de juros composto</h1>");
             out.println("<form name='formCalculoJurosComposto' method='post'>");
@@ -84,7 +84,7 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("</form>");
             // TODO: ajustar o template, adicionar uma estilização / tabela / whateverelse
             if(juros > 0){
-                out.println("<h3>Valor total: R$ "+ df.format(juros) +"</h3>");
+                out.println("<h3 align='center'> Valor total: R$ "+ df.format(juros) +"</h3>");
                 out.println("<h3>Juros: R$ "+ (df.format(juros-capital)) +"</h3>");
             }
             out.println("</row>");

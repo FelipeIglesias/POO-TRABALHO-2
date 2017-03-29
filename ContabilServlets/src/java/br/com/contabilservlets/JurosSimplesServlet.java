@@ -62,7 +62,7 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<link rel='stylesheet' type='text/css' href='js/bootstrap.min.js'>");
             out.println("<title>Servlet Calculo de Juros Simples</title>");            
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body style='background-color: #c7ddef'>");
             out.println("<div class='container-fluid'>");
             out.println("<h1>Calculo de juro simples</h1>");
             out.println("<form name='formCalculoJuroSimples' method='post'>");
