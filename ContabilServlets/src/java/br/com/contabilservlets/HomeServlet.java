@@ -32,6 +32,28 @@ public class HomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+	String menu = "<nav class='navbar navbar-default'>" +
+				"<div class='container-fluid'>" +
+				"<div class='navbar-header'>" +
+				"    <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>" +
+				"		<span class='sr-only'>Toggle navigation</span>" +
+				"		<span class='icon-bar'></span>" +
+				"		<span class='icon-bar'></span>" +
+				"		<span class='icon-bar'></span>" +
+				"   </button>" +
+				"   <a class='navbar-brand' href='index.html'>Juros</a>" +
+				"</div>" +
+				"<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>" +
+				"	<ul class='nav navbar-nav'>" +
+				"		<li class='active'><a href='index.html'>Home <span class='sr-only'>(current)</span></a></li>" +
+				"		<li><a href='jurossimples.html'>Juros Simples</a></li>" +
+				"		<li><a href='juroscomposto.html'>Juros Composto</a></li>" +
+				"	</ul>" +
+				"</div>" +
+				"</div>" +
+				"</nav>";
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println	("<!DOCTYPE html>");
@@ -40,25 +62,19 @@ public class HomeServlet extends HttpServlet {
             out.println		("<meta charset='utf-8'>");
             out.println		("<title>Juros Economico</title>");
             out.println		("<link rel='stylesheet' type='text/css' href='ecoCss.css'>");
+			out.println     ("<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>");
+            out.println     ("<link rel='stylesheet' type='text/css' href='js/bootstrap.min.js'>");
             out.println	("</head>");
             out.println	("<body>");
-            out.println		("<div class='container' id='body'>");
-            out.println			("<header>");
-            out.println				("<div id='top'>");
-            out.println					("<h1>JurosEco</h1><hr>");
-            out.println				("</div>");
-            out.println			("</header>");
-            out.println			("<body>");
-            out.println				("<div class='container'>");
+            out.println		(menu);
+            out.println		("<div class='container-fluid' id='body'>");
+            out.println                 ("<h1>JurosEco</h1><hr>");
             out.println				("<div id='titulo'>");
             out.println					("<h2>Seja bem-vindo ao JurosEco</h2><hr>");			
             out.println				("</div>");
             out.println				("<div id='meio'>");
             out.println					("<h2>Objetivo do Site</h2>");
             out.println					("<p>Site criado para auxiliar as pessoas a calcularem seus juros</p>");
-            out.println					("<h3><u>Calcule o tipo de Juros desejado</u></h3>");
-            out.println					("<h4><a href='jurossimples.html'>Juros Simples</a></h4>");
-            out.println					("<h4><a href='juroscomposto.html'>Juros Composto</a></h4>");
             out.println				("</div>");
             out.println				("<hr>");
             out.println				("<div>");
@@ -72,8 +88,6 @@ public class HomeServlet extends HttpServlet {
             out.println						("</ul>");
             out.println					("</div>");
             out.println				("</div>");
-            out.println			("</div>");	
-            out.println		("</body>");
             out.println		("<footer>");
             out.println			("<div id='rodape'>");
             out.println				("<hr><p>Projeto-02 - POO - Ricardo Pupo</p>");

@@ -33,6 +33,27 @@ public class JurosSimplesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+		String menu = "<nav class='navbar navbar-default'>" +
+				"<div class='container-fluid'>" +
+				"<div class='navbar-header'>" +
+				"    <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>" +
+				"		<span class='sr-only'>Toggle navigation</span>" +
+				"		<span class='icon-bar'></span>" +
+				"		<span class='icon-bar'></span>" +
+				"		<span class='icon-bar'></span>" +
+				"   </button>" +
+				"   <a class='navbar-brand' href='index.html'>Juros</a>" +
+				"</div>" +
+				"<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>" +
+				"	<ul class='nav navbar-nav'>" +
+                                "		<li><a href='index.html'>Home</a></li>" +	
+                                "		<li class='active'><a href='jurossimples.html'>Juros Simples <span class='sr-only'>(current)</span></a></li>" +
+				"		<li><a href='juroscomposto.html'>Juros Composto</a></li>" +
+				"	</ul>" +
+				"</div>" +
+				"</div>" +
+				"</nav>";
         
         float capital = 0;
         float taxa = 0;
@@ -63,6 +84,7 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<title>Servlet Calculo de Juros Simples</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println(menu);
             out.println("<div class='container-fluid'>");
             out.println("<h1>Calculo de juro simples</h1>");
             out.println("<form name='formCalculoJuroSimples' method='post'>");
@@ -78,7 +100,7 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("</div>");
             out.println("<div class='col-md-3'>");
             out.println("<label>&nbsp;</label><br/>");
-            out.println("<button type='submit' name='btnCalcularJurosSimples' class='btn btn-primary'>Calcular <i class='glyphicon glyphicon-eye-open'></i></button>");
+            out.println("<button type='submit' name='btnCalcularJurosSimples' class='btn btn-primary'>Calcular</button>");
             out.println("</div></div>");
             out.println("</form>");
             // TODO: ajustar o template, adicionar uma estilização / tabela / whateverelse

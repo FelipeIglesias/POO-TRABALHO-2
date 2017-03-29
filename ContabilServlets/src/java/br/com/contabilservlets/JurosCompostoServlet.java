@@ -33,6 +33,27 @@ public class JurosCompostoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+		String menu = "<nav class='navbar navbar-default'>" +
+				"<div class='container-fluid'>" +
+				"<div class='navbar-header'>" +
+				"    <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>" +
+				"		<span class='sr-only'>Toggle navigation</span>" +
+				"		<span class='icon-bar'></span>" +
+				"		<span class='icon-bar'></span>" +
+				"		<span class='icon-bar'></span>" +
+				"   </button>" +
+				"   <a class='navbar-brand' href='index.html'>Juros</a>" +
+				"</div>" +
+				"<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>" +
+				"	<ul class='nav navbar-nav'>" +
+				"		<li><a href='index.html'>Home</a></li>" +
+				"		<li><a href='jurossimples.html'>Juros Simples</a></li>" +
+                                "		<li class='active'><a href='juroscomposto.html'>Juros Composto <span class='sr-only'>(current)</span></a></li>" +
+				"	</ul>" +
+				"</div>" +
+				"</div>" +
+				"</nav>";
         
         
         double capital = 0;
@@ -50,7 +71,7 @@ public class JurosCompostoServlet extends HttpServlet {
         
         JurosComposto js = new JurosComposto();
         juros = js.calculoJurosComposto(capital, taxa, periodo);
-        
+        String strJuros = js.toString();
         DecimalFormat df = new DecimalFormat("###,###,###.00");
         df.format(juros);
         
@@ -64,6 +85,7 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<link rel='stylesheet' type='text/css' href='js/bootstrap.min.js'>");
             out.println("</head>");
             out.println("<body>");
+            out.println(menu);
             out.println("<div class='container-fluid'>");
             out.println("<h1>Calculo de juros composto</h1>");
             out.println("<form name='formCalculoJurosComposto' method='post'>");
@@ -86,6 +108,7 @@ public class JurosCompostoServlet extends HttpServlet {
             if(juros > 0){
                 out.println("<h3>Valor total: R$ "+ df.format(juros) +"</h3>");
                 out.println("<h3>Juros: R$ "+ (df.format(juros-capital)) +"</h3>");
+                out.println("<div class='col-md-6'><table class='table table-condensed table-hover'>"+strJuros+"</table></div>");
             }
             out.println("</row>");
             out.println("</body>");
