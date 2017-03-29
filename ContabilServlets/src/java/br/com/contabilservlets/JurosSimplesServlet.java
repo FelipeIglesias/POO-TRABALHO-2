@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "JurosSimplesServlet", urlPatterns = {"/jurossimples.html"})
 public class JurosSimplesServlet extends HttpServlet {
+   
+    private static final int anoComercial  = 360;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -68,8 +70,7 @@ public class JurosSimplesServlet extends HttpServlet {
             e.getMessage();
         }
         
-        JurosSimples js = new JurosSimples();
-        juros = js.calculoJurosSimples(capital, taxa, periodo);
+        juros = this.calculaJuroSimples(capital, taxa, periodo);
         
         DecimalFormat df = new DecimalFormat("###,###,###.00");
         df.format(juros);
@@ -79,11 +80,10 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>");
-            out.println("<link rel='stylesheet' type='text/css' href='js/bootstrap.min.js'>");
             out.println("<title>Servlet Calculo de Juros Simples</title>");            
             out.println("</head>");
             out.println("<body>");
+<<<<<<< HEAD
             out.println(menu);
             out.println("<div class='container-fluid'>");
             out.println("<h1>Calculo de juro simples</h1>");
@@ -102,16 +102,37 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<label>&nbsp;</label><br/>");
             out.println("<button type='submit' name='btnCalcularJurosSimples' class='btn btn-primary'>Calcular</button>");
             out.println("</div></div>");
+=======
+            out.println("<h1>Calculo de juro simples</h1>");
+            out.println("<form name='formCalculoJuroSimples' method='post'>");
+            out.println("<label for='capital'>Capital R$:</label><input type='text' name='capital' />");
+            out.println("<label for='taxa'>Juros:</label><input type='text' name='taxa' />");
+            out.println("<label for='periodo'>Periodo (em dias):</label><input type='text' name='periodo' placeholder='Ex.: 100 = 100 dias' />");
+            out.println("<input type='submit' name='btnCalcularJurosSimples' value='Calcular' />");
+>>>>>>> parent of 622b317... [Add] Estrutura OOP com alguns conceitos SOLID / [Change] Estilização das páginas de juros simples e juros composto
             out.println("</form>");
             // TODO: ajustar o template, adicionar uma estilização / tabela / whateverelse
             if(juros > 0){
                 out.println("<h3>Valor total: R$ "+ df.format(juros) +"</h3>");
                 out.println("<h3>Juros: R$ "+ (df.format(juros-capital)) +"</h3>");
             }
-            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
+    }
+    
+    /**
+     * Calculo de juro simples.
+     * @param capital float
+     * @param taxa float
+     * @param periodo int
+     * @return result (juro simples)
+     */
+    public float calculaJuroSimples(float capital, float taxa, int periodo){
+        float result = 0;
+        result = capital*(1+(((float)taxa/100f)*((float)periodo/anoComercial)));
+        
+        return result;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

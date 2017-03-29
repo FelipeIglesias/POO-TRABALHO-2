@@ -85,6 +85,7 @@ public class HomeServlet extends HttpServlet {
             out.println                                 ("<tr>");
             out.println                                 ("<td width='140' height='30'>");
             out.println					("<h4><a href='jurossimples.html'>Juros Simples</a></h4>");
+<<<<<<< HEAD
             out.println                                 ("</td>");
             out.println                                 ("</tr>");
             out.println                                 ("</table");
@@ -96,6 +97,9 @@ public class HomeServlet extends HttpServlet {
             out.println                                 ("</td>");
             out.println                                 ("</tr>");
             out.println                                 ("</table>");
+=======
+            out.println					("<h4><a href='jurossimples.html'>Juros Composto</a></h4>");
+>>>>>>> parent of 622b317... [Add] Estrutura OOP com alguns conceitos SOLID / [Change] Estilização das páginas de juros simples e juros composto
             out.println				("</div>");
             out.println                                 ("<div class='col-md-4' align='center'>");
             out.println					("<h3>Integrantes do Grupo</h3> <br>");

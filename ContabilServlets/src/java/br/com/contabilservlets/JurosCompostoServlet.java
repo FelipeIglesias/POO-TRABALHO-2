@@ -7,7 +7,6 @@ package br.com.contabilservlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +32,7 @@ public class JurosCompostoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+<<<<<<< HEAD
 
 		String menu = "<nav class='navbar navbar-default'>" +
 				"<div class='container-fluid'>" +
@@ -75,16 +75,17 @@ public class JurosCompostoServlet extends HttpServlet {
         DecimalFormat df = new DecimalFormat("###,###,###.00");
         df.format(juros);
         
+=======
+>>>>>>> parent of 622b317... [Add] Estrutura OOP com alguns conceitos SOLID / [Change] Estilização das páginas de juros simples e juros composto
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Calculo de Juros Composto</title>");   
-            out.println("<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>");
-            out.println("<link rel='stylesheet' type='text/css' href='js/bootstrap.min.js'>");
+            out.println("<title>Servlet JurosCompostoServlet</title>");            
             out.println("</head>");
             out.println("<body>");
+<<<<<<< HEAD
             out.println(menu);
             out.println("<div class='container-fluid'>");
             out.println("<h1>Calculo de juros composto</h1>");
@@ -111,6 +112,9 @@ public class JurosCompostoServlet extends HttpServlet {
                 out.println("<div class='col-md-6'><table class='table table-condensed table-hover'>"+strJuros+"</table></div>");
             }
             out.println("</row>");
+=======
+            out.println("<h1>Servlet JurosCompostoServlet at " + request.getContextPath() + "</h1>");
+>>>>>>> parent of 622b317... [Add] Estrutura OOP com alguns conceitos SOLID / [Change] Estilização das páginas de juros simples e juros composto
             out.println("</body>");
             out.println("</html>");
         }
