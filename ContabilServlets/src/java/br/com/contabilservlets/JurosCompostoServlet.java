@@ -106,7 +106,7 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("</form>");
             // TODO: ajustar o template, adicionar uma estilização / tabela / whateverelse
             if(juros > 0){
-                out.println("<h3>Valor total: R$ "+ df.format(juros) +"</h3>");
+                out.println("<h3 align='center'> Valor total: R$ "+ df.format(juros) +"</h3>");
                 out.println("<h3>Juros: R$ "+ (df.format(juros-capital)) +"</h3>");
                 out.println("<div class='col-md-6'><table class='table table-condensed table-hover'>"+strJuros+"</table></div>");
             }
